@@ -1,5 +1,6 @@
-import mongoose from "mongoose";
+import mongoose, { Connection } from 'mongoose';
 import config from './config/config'
+
 
 mongoose.connect(config.DB.URI);
 
@@ -10,6 +11,6 @@ connection.once('open',() =>{
 });
 
 connection.on('error', err => {
-    console.log(err);
+    console.log("ERROR!!",err);
     process.exit(0);
 })
