@@ -6,6 +6,7 @@ export interface IReport extends Document{
     temperature: string;
     humidity: string;
     ph: string;
+    date: Date;
 }
 
 const reportSchema = new Schema ({
@@ -30,6 +31,10 @@ const reportSchema = new Schema ({
     ph: {
         type: String,
         required: true
+    },
+    date: {
+        type: Date,
+        require: true
     }
 });
 
@@ -45,8 +50,8 @@ reportSchema.pre<IReport>('save', async function (next){
     next();
 });
 
-reportSchema.methods.comparePassword = async function (password: string): Promise<boolean> {
+/*reportSchema.methods.comparePassword = async function (password: string): Promise<boolean> {
     return await bcrypt.compare(password, this.password);
-}
+}*/
 
 export default model<IReport>('report', reportSchema)

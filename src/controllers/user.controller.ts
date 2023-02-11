@@ -29,6 +29,7 @@ export const singIn = async (req: Request , res: Response ) =>{
         return res.status(400).json({msg: 'Please. Send your email and password'})
     }
     const nowUser = await user.findOne({email: req.body.email})
+    
     if (!nowUser) {
         return res.status(400).json({msg: 'The user does not exists'});
     }

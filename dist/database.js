@@ -11,6 +11,6 @@ connection.once('open', () => {
     console.log('Mongodb connection stablished');
 });
 connection.on('error', err => {
-    console.log(err);
+    console.log("ERROR!!", err);
     process.exit(0);
 });
